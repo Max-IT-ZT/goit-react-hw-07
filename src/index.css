@@ -1,3 +1,10 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #f3f4f6;
+  color: #504e4f;
+}
 h1,
 h2,
 h3,
@@ -7,7 +14,8 @@ h6,
 p {
   margin: 0;
 }
-ul,ol {
+ul,
+ol {
   margin: 0;
   padding: 0;
   list-style: none;

@@ -5,8 +5,8 @@ import { useId } from "react";
 import css from "./ContactForm.module.css";
 import { Formik, Form, Field } from "formik";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsSlice";
-import { nanoid } from "nanoid";
+
+import { addContact } from "../../redux/contactsOps";
 
 export default function ContactForm() {
   const nameId = useId();
@@ -25,13 +25,11 @@ export default function ContactForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    console.log(values);
     actions.resetForm();
     dispatch(
       addContact({
         name: values.name,
         number: values.number,
-        id: nanoid(),
       })
     );
   };
@@ -48,7 +46,7 @@ export default function ContactForm() {
       <Form className={css.form}>
         <span className={css.fieldSpan}>
           <label className={css.fieldLabel} htmlFor={nameId}>
-            Name ;
+            Username
           </label>
           <Field
             className={css.field}
@@ -61,7 +59,7 @@ export default function ContactForm() {
         <ErrorMessage className={css.fieldError} name="name" component="span" />
         <span className={css.fieldSpan}>
           <label className={css.fieldLabel} htmlFor={numberId}>
-            Number ;
+            Phone Number
           </label>
           <Field
             className={css.field}
